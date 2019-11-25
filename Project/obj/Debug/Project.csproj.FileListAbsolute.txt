@@ -9,4 +9,15 @@ D:\C#\#DO_AN\Project\Project\obj\Debug\Project.exe
 D:\C#\#DO_AN\Project\Project\obj\Debug\Project.pdb
 D:\C#\#DO_AN\Project\Project\obj\Debug\Project.frmMDIMain.resources
 D:\C#\#DO_AN\Project\Project\obj\Debug\Project.frmLogin.resources
-D:\C#\#DO_AN\Project\Project\obj\Debug\Project.frmNhanVien.resources
+D:\LTUD-Project-master\Project\bin\Debug\Project.exe.config
+D:\LTUD-Project-master\Project\obj\Debug\Project.exe
+D:\LTUD-Project-master\Project\obj\Debug\Project.pdb
+D:\LTUD-Project-master\Project\bin\Debug\Project.exe
+D:\LTUD-Project-master\Project\bin\Debug\Project.pdb
+D:\LTUD-Project-master\Project\obj\Debug\Project.csprojResolveAssemblyReference.cache
+D:\LTUD-Project-master\Project\obj\Debug\Project.frmHopDongLaoDong.resources
+D:\LTUD-Project-master\Project\obj\Debug\Project.frmLogin.resources
+D:\LTUD-Project-master\Project\obj\Debug\Project.frmMDIMain.resources
+D:\LTUD-Project-master\Project\obj\Debug\Project.frmPhongBan.resources
+D:\LTUD-Project-master\Project\obj\Debug\Project.Properties.Resources.resources
+D:\LTUD-Project-master\Project\obj\Debug\Project.csproj.GenerateResource.Cache

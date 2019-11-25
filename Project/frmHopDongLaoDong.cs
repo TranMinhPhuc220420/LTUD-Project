@@ -10,20 +10,17 @@ using System.Windows.Forms;
 
 namespace Project
 {
-    public partial class frmMDIMain : Form
+    public partial class frmHopDongLaoDong : Form
     {
-        public frmMDIMain()
+        public frmHopDongLaoDong()
         {
             InitializeComponent();
         }
 
-        private void frmMDIMain_Load(object sender, EventArgs e)
+        private void FrmHopDongLaoDong_Load(object sender, EventArgs e)
         {
-            frmLogin frmLogin = new frmLogin();
-            frmLogin.MdiParent = this;
-            frmLogin.Show();
-        }
 
+        }
         private void exit()
         {
             try
@@ -38,17 +35,9 @@ namespace Project
                 MessageBox.Show("Error" + ex.Message);
             }
         }
-
-        private void thoátChươngTrìnhToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
         {
             exit();
-        }
-
-        private void quảnLýToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmPhongBan frmLogin = new frmPhongBan();
-            frmLogin.MdiParent = this;
-            frmLogin.Show();
         }
     }
 }

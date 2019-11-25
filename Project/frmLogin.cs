@@ -34,11 +34,11 @@ namespace Project
         {
             if(txtUsername.Text == string.Empty)
             {
-                errTxt.SetError(txtUsername, "Chưa nhập dữ liệu");
+                erpTxt.SetError(txtUsername, "Chưa nhập dữ liệu");
             }
             else
             {
-                errTxt.Clear();
+                erpTxt.Clear();
             }
         }
     }
