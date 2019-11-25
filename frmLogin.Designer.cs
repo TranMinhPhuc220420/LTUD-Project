@@ -44,12 +44,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnSubmit = new System.Windows.Forms.Button();
-            this.errTxt = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erpTxt = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errTxt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpTxt)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -205,9 +205,9 @@
             this.btnSubmit.UseVisualStyleBackColor = false;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
-            // errTxt
+            // erpTxt
             // 
-            this.errTxt.ContainerControl = this;
+            this.erpTxt.ContainerControl = this;
             // 
             // frmLogin
             // 
@@ -234,7 +234,7 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.errTxt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpTxt)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -255,6 +255,6 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ErrorProvider errTxt;
+        private System.Windows.Forms.ErrorProvider erpTxt;
     }
 }
