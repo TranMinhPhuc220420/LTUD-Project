@@ -51,3 +51,4 @@ D:\Project C#\LTUD-Project\Project\obj\Debug\Project.Properties.Resources.resour
 D:\Project C#\LTUD-Project\Project\obj\Debug\Project.csproj.GenerateResource.Cache
 D:\Project C#\LTUD-Project\Project\bin\Debug\Project.exe
 D:\Project C#\LTUD-Project\Project\bin\Debug\Project.pdb
+C:\Users\SKT_B\OneDrive\Documents\GitHub\LTUD-Project\Project\obj\Debug\Project.frmTDHV.resources
