@@ -100,6 +100,7 @@ namespace Project
             cnn.Open();
             DataTable dtTim = new DataTable();
             SqlCommand cmdTim = new SqlCommand("sp_SelectLuongByBacLuong", cnn);
+            cmdTim.CommandType = CommandType.StoredProcedure;
             cmdTim.Parameters.Add(new SqlParameter("@bacLuong", bacLuong));
             SqlDataAdapter daTim = new SqlDataAdapter(cmdTim);
             daTim.Fill(dtTim);

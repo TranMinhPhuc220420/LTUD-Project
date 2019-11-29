@@ -66,6 +66,84 @@ namespace Project
             return status;
         }
 
+        public int XoaTDHV(string maTDHV) {
+            SqlConnection cnn = getConnection();
+            cnn.Open();
+            int status = 0;
+            try
+            {
+                SqlCommand cmdThem = new SqlCommand("sp_DeleteTrinhDoHocVan", cnn);
+                cmdThem.CommandText = "sp_DeleteTrinhDoHocVan";
+                cmdThem.CommandType = CommandType.StoredProcedure;
+                cmdThem.Parameters.Add(new SqlParameter("@maTDHV", maTDHV));
+                if (cmdThem.ExecuteNonQuery() != 0)
+                {
+                    status = 1;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                cnn.Close();
+            }
+            return status;
+        }
+
+        public int suaTDHV(string maTDHV, string tenTDHV, string cNganh)
+        {
+            SqlConnection cnn = getConnection();
+            cnn.Open();
+            int status = 0;
+            try
+            {
+                SqlCommand cmdThem = new SqlCommand("sp_UpdateTrinhDoHocVan", cnn);
+                cmdThem.CommandText = "sp_UpdateTrinhDoHocVan";
+                cmdThem.CommandType = CommandType.StoredProcedure;
+                cmdThem.Parameters.Add(new SqlParameter("@maTDHV", maTDHV));
+                cmdThem.Parameters.Add(new SqlParameter("@tenTDHV", tenTDHV));
+                cmdThem.Parameters.Add(new SqlParameter("@cNganh", cNganh));
+                if (cmdThem.ExecuteNonQuery() != 0)
+                {
+                    status = 1;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                cnn.Close();
+            }
+            return status;
+        }
+
+        public void timTDHVTheoMa(string maTDHV) {
+            try
+            {
+                SqlConnection cnn = getConnection();
+                cnn.Open();
+                DataTable dtTim = new DataTable();
+                SqlCommand cmdTim = new SqlCommand("sp_SelectTrinhDoHocVanByMaTDHV", cnn);
+                cmdTim.CommandType = CommandType.StoredProcedure;
+                cmdTim.Parameters.Add(new SqlParameter("@maTDHV", maTDHV));
+                SqlDataAdapter daTim = new SqlDataAdapter(cmdTim);
+                daTim.Fill(dtTim);
+                dgvTDHV.DataSource = dtTim;
+                dgvTDHV.Columns[0].HeaderText = "Mã TDHV";
+                dgvTDHV.Columns[1].HeaderText = "Tên TDHV";
+                dgvTDHV.Columns[2].HeaderText = "Chuyên nghành";
+                cnn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void frmTDHV_Load(object sender, EventArgs e)
         {
             getTDHV();
@@ -109,6 +187,44 @@ namespace Project
             else
             {
                 MessageBox.Show("Thêm thất bại!", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (XoaTDHV(txtMaTDHV.Text) != 0)
+            {
+                MessageBox.Show("Xóa thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                getTDHV();
+            }
+            else
+            {
+                MessageBox.Show("Xóa thất bại!", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (suaTDHV(txtMaTDHV.Text, txtTenTDHV.Text, txtChuyenNghanh.Text) != 0)
+            {
+                MessageBox.Show("Sửa thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                getTDHV();
+            }
+            else
+            {
+                MessageBox.Show("Sửa thất bại!", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (txtMaTDHV.Text.Length == 0)
+            {
+                getTDHV();
+            }
+            else
+            {
+                timTDHVTheoMa(txtMaTDHV.Text);
             }
         }
 
