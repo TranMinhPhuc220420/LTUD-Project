@@ -31,10 +31,10 @@ GO
 
 
 -- TABLE HOPDONGLAODONG
-CREATE PROC sp_InsertHopDongLaoDong(@maHD VARCHAR(12), @maNV VARCHAR(12), @loaiHD NVARCHAR(500), @tuNgay DATE, @denNgay DATE) --INSERT
+CREATE PROC sp_InsertHopDongLaoDong(@maHD VARCHAR(12), @loaiHD NVARCHAR(500), @tuNgay DATE, @denNgay DATE) --INSERT
 AS 
-	INSERT INTO HOPDONGLAODONG(MaHD, MaNV, LoaiHD, TuNgay,DenNgay)
-	VALUES (@maHD, @maNV, @loaiHD, @tuNgay, @denNgay)
+	INSERT INTO HOPDONGLAODONG(MaHD, LoaiHD, TuNgay,DenNgay)
+	VALUES (@maHD, @loaiHD, @tuNgay, @denNgay)
 GO
 
 CREATE PROC sp_DeleteHopDongLaoDong(@maHD VARCHAR(12)) -- DELETE
@@ -42,13 +42,13 @@ AS
 	DELETE FROM HOPDONGLAODONG WHERE HOPDONGLAODONG.MaHD = @maHD
 GO
 
-CREATE PROC sp_UpdateHopDongLaoDong(@maHD VARCHAR(12), @maNV VARCHAR(12), @loaiHD NVARCHAR(500), @tuNgay DATE, @denNgay DATE) --UPDATE
+CREATE PROC sp_UpdateHopDongLaoDong(@maHD VARCHAR(12), @loaiHD NVARCHAR(500), @tuNgay DATE, @denNgay DATE) --UPDATE
 AS
 	UPDATE HOPDONGLAODONG
 	SET LoaiHD = @loaiHD,
 		TuNgay = @tuNgay,
 		DenNgay = @denNgay
-	WHERE MaHD = @maHD AND MaNV = @maNV
+	WHERE MaHD = @maHD
 GO
 
 CREATE PROC sp_SelectAllHopDocLaoDon -- SELECT ALL

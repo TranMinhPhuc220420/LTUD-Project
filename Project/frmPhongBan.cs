@@ -62,14 +62,21 @@ namespace Project
             //goi thuc thi
             try
             {
-                if (ketnoi.ThemPhongBan(txtMaPB.Text, txtTenPB.Text, txtDiaChi.Text, cbMaTP.Text) == 1)
+                if (txtMaPB.Text != string.Empty && txtTenPB.Text != string.Empty && txtDiaChi.Text != string.Empty && cbMaTP.Text != string.Empty)
                 {
-                    MessageBox.Show("Đã thêm thành công", "Thêm", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    getPhongBan();
+                    if (ketnoi.ThemPhongBan(txtMaPB.Text, txtTenPB.Text, txtDiaChi.Text, cbMaTP.Text) == 1)
+                    {
+                        MessageBox.Show("Đã thêm thành công", "Thêm", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        getPhongBan();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thêm thất bại", "Thêm", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Thêm thất bại", "Thêm", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Nhập đủ thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch(Exception ex)

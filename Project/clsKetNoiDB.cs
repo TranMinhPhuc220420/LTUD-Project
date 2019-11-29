@@ -27,6 +27,7 @@ namespace Project
             }
         }
 
+//I.PHONGBAN
         //SELECT ALL ROW OF TABLE PHONGBAN
         public DataTable LayDSPhongBan()
         {
@@ -118,6 +119,99 @@ namespace Project
                 return 0;
             }
         }
+
+//II.HOPDONGLAODONG
+        //SELECT ALL ROW OF TABLE HOPDONGLAODONG
+        public DataTable LayDSHopDong()
+        {
+            DataTable dtHopDong = new DataTable();
+            string spName = "sp_SelectAllHopDocLaoDon";
+            SqlCommand cmdHopDong = new SqlCommand(spName, conn);
+            cmdHopDong.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter daPhongBan = new SqlDataAdapter(cmdHopDong);
+            daPhongBan.Fill(dtHopDong);
+            return dtHopDong;
+        }
+
+        //SelectHopDongByMaHD
+        public DataTable SelectHopDongByMaHD(string maHD)
+        {
+            DataTable dtHopDong = new DataTable();
+            string spName = "sp_SelectHopDongLaoDongByMaHD";
+            SqlCommand cmdTim = new SqlCommand(spName, conn);
+            cmdTim.CommandType = CommandType.StoredProcedure;
+            cmdTim.Parameters.Add(new SqlParameter("@maHD", maHD));
+            SqlDataAdapter daHopDong = new SqlDataAdapter(cmdTim);
+            daHopDong.Fill(dtHopDong);
+            return dtHopDong;
+        }
+
+        //ADD ThemHopDong FUNCTION
+        public int ThemHopDong(string maHD, string loaiHD, string tuNgay, string denNgay)
+        {
+            string spName = "sp_InsertHopDongLaoDong";
+            SqlCommand cmdThem = new SqlCommand(spName, conn);
+            cmdThem.CommandText = spName;
+            cmdThem.CommandType = CommandType.StoredProcedure;
+            cmdThem.Parameters.Add(new SqlParameter("@maHD", maHD));
+            cmdThem.Parameters.Add(new SqlParameter("@loaiHD", loaiHD));
+            cmdThem.Parameters.Add(new SqlParameter("@tuNgay", tuNgay));
+            cmdThem.Parameters.Add(new SqlParameter("@denNgay", denNgay));
+            if (cmdThem.ExecuteNonQuery() != 0)
+            {
+                conn.Close();
+                return 1;
+            }
+            else
+            {
+                conn.Close();
+                return 0;
+            }
+        }
+
+        //DELETE XoaHopDong FUNCTION
+        public int XoaHopDong(string maHD)
+        {
+            string spName = "sp_DeleteHopDongLaoDong";
+            SqlCommand cmdXoa = new SqlCommand(spName, conn);
+            cmdXoa.CommandText = spName;
+            cmdXoa.CommandType = CommandType.StoredProcedure;
+            cmdXoa.Parameters.Add(new SqlParameter("@maHD", maHD));
+            if (cmdXoa.ExecuteNonQuery() != 0)
+            {
+                conn.Close();
+                return 1;
+            }
+            else
+            {
+                conn.Close();
+                return 0;
+            }
+        }
+
+        //UPDATE SuaHopDong FUNCTION
+        public int SuaHopDong(string maHD, string loaiHD, string tuNgay, string denNgay)
+        {
+            string spName = "sp_UpdateHopDongLaoDong";
+            SqlCommand cmdSua = new SqlCommand(spName, conn);
+            cmdSua.CommandText = spName;
+            cmdSua.CommandType = CommandType.StoredProcedure;
+            cmdSua.Parameters.Add(new SqlParameter("@maHD", maHD));
+            cmdSua.Parameters.Add(new SqlParameter("@loaiHD", loaiHD));
+            cmdSua.Parameters.Add(new SqlParameter("@tuNgay", tuNgay));
+            cmdSua.Parameters.Add(new SqlParameter("@denNgay", denNgay));
+            if (cmdSua.ExecuteNonQuery() != 0)
+            {
+                conn.Close();
+                return 1;
+            }
+            else
+            {
+                conn.Close();
+                return 0;
+            }
+        }
+
 
     }
 }
