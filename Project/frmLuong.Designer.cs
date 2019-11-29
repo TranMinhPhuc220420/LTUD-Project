@@ -194,6 +194,8 @@
             // 
             // dgvLuong
             // 
+            this.dgvLuong.AllowUserToAddRows = false;
+            this.dgvLuong.AllowUserToDeleteRows = false;
             this.dgvLuong.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvLuong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLuong.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -328,6 +330,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lương";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLuong_FormClosing);
+            this.Load += new System.EventHandler(this.frmLuong_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

@@ -16,7 +16,6 @@ namespace Project
         public frmLuong()
         {
             InitializeComponent();
-            getLuong();
         }
 
         public SqlConnection getConnection() {
@@ -98,10 +97,9 @@ namespace Project
 
         public void timLuongTheoBacLuong(int bacLuong) {
             SqlConnection cnn = getConnection();
+            cnn.Open();
             DataTable dtTim = new DataTable();
             SqlCommand cmdTim = new SqlCommand("sp_SelectLuongByBacLuong", cnn);
-            cmdTim.CommandText = "sp_SelectLuongByBacLuong";
-            cmdTim.CommandType = CommandType.StoredProcedure;
             cmdTim.Parameters.Add(new SqlParameter("@bacLuong", bacLuong));
             SqlDataAdapter daTim = new SqlDataAdapter(cmdTim);
             daTim.Fill(dtTim);
@@ -196,6 +194,11 @@ namespace Project
                 timLuongTheoBacLuong(bacLuong);
             }
 
+        }
+
+        private void frmLuong_Load(object sender, EventArgs e)
+        {
+            getLuong();
         }
     }
 }
