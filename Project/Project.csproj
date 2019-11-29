@@ -95,6 +95,7 @@
     <Compile Include="frmTrinhDoHocVan.Designer.cs">
       <DependentUpon>frmTrinhDoHocVan.cs</DependentUpon>
     </Compile>
+    <Compile Include="handleDatabase.cs" />
     <Compile Include="Program.cs">
       <SubType>Code</SubType>
     </Compile>
