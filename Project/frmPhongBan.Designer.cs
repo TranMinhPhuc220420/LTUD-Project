@@ -38,17 +38,13 @@
             this.txtDiaChi = new System.Windows.Forms.TextBox();
             this.txtTenPB = new System.Windows.Forms.TextBox();
             this.cbMaTP = new System.Windows.Forms.ComboBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.colMaPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTenPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMaTP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvPhongBan = new System.Windows.Forms.DataGridView();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.btnExit = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPhongBan)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -126,40 +122,16 @@
             this.cbMaTP.Size = new System.Drawing.Size(240, 26);
             this.cbMaTP.TabIndex = 3;
             // 
-            // dataGridView1
+            // dgvPhongBan
             // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colMaPB,
-            this.colTenPB,
-            this.colDiaChi,
-            this.colMaTP});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 332);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(877, 190);
-            this.dataGridView1.TabIndex = 5;
-            // 
-            // colMaPB
-            // 
-            this.colMaPB.HeaderText = "Mã Phòng Ban";
-            this.colMaPB.Name = "colMaPB";
-            // 
-            // colTenPB
-            // 
-            this.colTenPB.HeaderText = "Tên Phòng Ban";
-            this.colTenPB.Name = "colTenPB";
-            // 
-            // colDiaChi
-            // 
-            this.colDiaChi.HeaderText = "Địa Chỉ";
-            this.colDiaChi.Name = "colDiaChi";
-            // 
-            // colMaTP
-            // 
-            this.colMaTP.HeaderText = "Mã Trưởng Phòng";
-            this.colMaTP.Name = "colMaTP";
+            this.dgvPhongBan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPhongBan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPhongBan.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvPhongBan.Location = new System.Drawing.Point(0, 332);
+            this.dgvPhongBan.Name = "dgvPhongBan";
+            this.dgvPhongBan.Size = new System.Drawing.Size(877, 190);
+            this.dgvPhongBan.TabIndex = 5;
+            this.dgvPhongBan.Click += new System.EventHandler(this.DgvPhongBan_Click);
             // 
             // btnAdd
             // 
@@ -177,6 +149,7 @@
             this.btnAdd.TabIndex = 19;
             this.btnAdd.Text = "T&hêm";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // btnDelete
             // 
@@ -229,22 +202,23 @@
             this.btnSearch.Text = "&Tìm";
             this.btnSearch.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnExit
             // 
-            this.button1.AccessibleDescription = "Thoát khỏi form nhân viên";
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Cambria", 11.8F);
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(720, 242);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(146, 55);
-            this.button1.TabIndex = 23;
-            this.button1.Text = "Th&oát";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnExit.AccessibleDescription = "Thoát khỏi form nhân viên";
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExit.Font = new System.Drawing.Font("Cambria", 11.8F);
+            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
+            this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExit.Location = new System.Drawing.Point(720, 242);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(2);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnExit.Size = new System.Drawing.Size(146, 55);
+            this.btnExit.TabIndex = 23;
+            this.btnExit.Text = "Th&oát";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
             // frmPhongBan
             // 
@@ -252,12 +226,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(877, 522);
             this.ControlBox = false;
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvPhongBan);
             this.Controls.Add(this.cbMaTP);
             this.Controls.Add(this.txtTenPB);
             this.Controls.Add(this.txtDiaChi);
@@ -272,7 +246,8 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmPhongBan";
             this.Text = "Phòng Ban";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.FrmPhongBan_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPhongBan)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -289,15 +264,11 @@
         private System.Windows.Forms.TextBox txtDiaChi;
         private System.Windows.Forms.TextBox txtTenPB;
         private System.Windows.Forms.ComboBox cbMaTP;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMaPB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTenPB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDiaChi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMaTP;
+        private System.Windows.Forms.DataGridView dgvPhongBan;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnExit;
     }
 }
