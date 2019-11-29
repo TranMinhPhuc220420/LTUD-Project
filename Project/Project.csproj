@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsKetNoiDB.cs" />
     <Compile Include="frmChucVu.cs">
       <SubType>Form</SubType>
     </Compile>
