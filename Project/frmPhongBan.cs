@@ -19,14 +19,20 @@ namespace Project
 
         clsKetNoiDB ketnoi = new clsKetNoiDB();
 
-        //FORM LOAD EVENT
-        private void FrmPhongBan_Load(object sender, EventArgs e)
+        //GET PHONGBAN
+        public void getPhongBan()
         {
             dgvPhongBan.DataSource = ketnoi.LayDSPhongBan();
             dgvPhongBan.Columns[0].HeaderText = "Mã Phòng Ban";
             dgvPhongBan.Columns[1].HeaderText = "Tên Phòng Ban";
             dgvPhongBan.Columns[2].HeaderText = "Địa Chỉ";
             dgvPhongBan.Columns[3].HeaderText = "Mã Trưởng Phòng";
+        }
+
+        //FORM LOAD EVENT
+        private void FrmPhongBan_Load(object sender, EventArgs e)
+        {
+            getPhongBan();
         }
 
         //EXIT FUNCTION
@@ -59,6 +65,7 @@ namespace Project
                 if (ketnoi.ThemPhongBan(txtMaPB.Text, txtTenPB.Text, txtDiaChi.Text, cbMaTP.Text) == 1)
                 {
                     MessageBox.Show("Đã thêm thành công", "Thêm", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    getPhongBan();
                 }
                 else
                 {
@@ -86,6 +93,64 @@ namespace Project
         private void BtnExit_Click(object sender, EventArgs e)
         {
             exit();
+        }
+        
+        //DELETE BUTTON
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string maPB = txtMaPB.Text;
+                if(MessageBox.Show("Bạn có chắc chắn muốn xóa không?","Xóa",MessageBoxButtons.YesNo,MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    if (ketnoi.XoaPhongBan(maPB) != 0)
+                    {
+                        MessageBox.Show("Xóa Thành Công", "Xóa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        getPhongBan();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa Không Thành Công", "Xóa", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi " + ex.Message);
+            }
+        }
+
+        private void BtnUpdate_Click(object sender, EventArgs e)
+        {
+            //goi thuc thi
+            try
+            {
+                if (ketnoi.SuaPhongBan(txtMaPB.Text, txtTenPB.Text, txtDiaChi.Text, cbMaTP.Text) == 1)
+                {
+                    MessageBox.Show("Đã sửa thành công", "Sửa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    getPhongBan();
+                }
+                else
+                {
+                    MessageBox.Show("Sửa thất bại", "Thêm", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi " + ex.Message);
+            }
+        }
+
+        private void BtnSearch_Click(object sender, EventArgs e)
+        {
+            if(txtMaPB.Text.Length == 0)
+            {
+                getPhongBan();
+            }
+            else
+            {
+                dgvPhongBan.DataSource = ketnoi.SelectPhongBanByMaPB(txtMaPB.Text);
+            }
         }
     }
 }

@@ -167,6 +167,7 @@
             this.btnDelete.TabIndex = 20;
             this.btnDelete.Text = "&Xoá";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // btnUpdate
             // 
@@ -184,6 +185,7 @@
             this.btnUpdate.TabIndex = 21;
             this.btnUpdate.Text = "&Sửa";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // btnSearch
             // 
@@ -201,6 +203,7 @@
             this.btnSearch.TabIndex = 22;
             this.btnSearch.Text = "&Tìm";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
             // btnExit
             // 
