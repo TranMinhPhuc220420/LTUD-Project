@@ -55,7 +55,7 @@ namespace Project
         public int XoaPhongBan(string maPB)
         {
             int ketQuaPB = 0;
-
+            return ketQuaPB;
         }
     }
 }

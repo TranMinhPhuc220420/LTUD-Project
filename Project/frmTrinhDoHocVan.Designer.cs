@@ -36,6 +36,7 @@
             this.txtTenTDHV = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.txtMaTDHV = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvTDHV = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -44,7 +45,6 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.txtMaTDHV = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTDHV)).BeginInit();
@@ -140,6 +140,17 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Tên CDHV:";
             // 
+            // txtMaTDHV
+            // 
+            this.txtMaTDHV.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtMaTDHV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.8F);
+            this.txtMaTDHV.Location = new System.Drawing.Point(264, 27);
+            this.txtMaTDHV.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMaTDHV.Name = "txtMaTDHV";
+            this.txtMaTDHV.Size = new System.Drawing.Size(236, 27);
+            this.txtMaTDHV.TabIndex = 1;
+            // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -155,14 +166,20 @@
             // 
             // dgvTDHV
             // 
+            this.dgvTDHV.AllowUserToAddRows = false;
+            this.dgvTDHV.AllowUserToDeleteRows = false;
+            this.dgvTDHV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTDHV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTDHV.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvTDHV.Location = new System.Drawing.Point(0, 163);
             this.dgvTDHV.Margin = new System.Windows.Forms.Padding(2);
             this.dgvTDHV.Name = "dgvTDHV";
+            this.dgvTDHV.ReadOnly = true;
             this.dgvTDHV.RowTemplate.Height = 24;
+            this.dgvTDHV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTDHV.Size = new System.Drawing.Size(624, 183);
             this.dgvTDHV.TabIndex = 1;
+            this.dgvTDHV.Click += new System.EventHandler(this.dgvTDHV_Click);
             // 
             // panel3
             // 
@@ -195,6 +212,7 @@
             this.btnExit.TabIndex = 7;
             this.btnExit.Text = "Th&oát";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnDelete
             // 
@@ -263,23 +281,14 @@
             this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "T&hêm";
             this.btnAdd.UseVisualStyleBackColor = true;
-            // 
-            // txtMaTDHV
-            // 
-            this.txtMaTDHV.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtMaTDHV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.8F);
-            this.txtMaTDHV.Location = new System.Drawing.Point(264, 27);
-            this.txtMaTDHV.Margin = new System.Windows.Forms.Padding(2);
-            this.txtMaTDHV.Name = "txtMaTDHV";
-            this.txtMaTDHV.Size = new System.Drawing.Size(236, 27);
-            this.txtMaTDHV.TabIndex = 1;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // frmTDHV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(792, 427);
+            this.ControlBox = false;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -289,6 +298,8 @@
             this.Name = "frmTDHV";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Trình độ học vấn";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmTDHV_FormClosing);
+            this.Load += new System.EventHandler(this.frmTDHV_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

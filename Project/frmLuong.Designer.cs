@@ -32,8 +32,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbLuong = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtHSPhuCap = new System.Windows.Forms.TextBox();
             this.txtHSLuong = new System.Windows.Forms.TextBox();
             this.txtLuongCB = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtBacLuong = new System.Windows.Forms.TextBox();
@@ -45,8 +47,6 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtHSPhuCap = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLuong)).BeginInit();
@@ -96,6 +96,17 @@
             this.panel2.Size = new System.Drawing.Size(792, 386);
             this.panel2.TabIndex = 1;
             // 
+            // txtHSPhuCap
+            // 
+            this.txtHSPhuCap.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtHSPhuCap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.8F);
+            this.txtHSPhuCap.Location = new System.Drawing.Point(244, 161);
+            this.txtHSPhuCap.Margin = new System.Windows.Forms.Padding(2);
+            this.txtHSPhuCap.Name = "txtHSPhuCap";
+            this.txtHSPhuCap.Size = new System.Drawing.Size(236, 27);
+            this.txtHSPhuCap.TabIndex = 2;
+            // 
             // txtHSLuong
             // 
             this.txtHSLuong.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -117,6 +128,19 @@
             this.txtLuongCB.Name = "txtLuongCB";
             this.txtLuongCB.Size = new System.Drawing.Size(236, 27);
             this.txtLuongCB.TabIndex = 2;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.8F);
+            this.label6.Location = new System.Drawing.Point(129, 164);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(111, 22);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "HS Phụ cấp:";
             // 
             // label4
             // 
@@ -170,14 +194,20 @@
             // 
             // dgvLuong
             // 
+            this.dgvLuong.AllowUserToAddRows = false;
+            this.dgvLuong.AllowUserToDeleteRows = false;
+            this.dgvLuong.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvLuong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLuong.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvLuong.Location = new System.Drawing.Point(0, 203);
             this.dgvLuong.Margin = new System.Windows.Forms.Padding(2);
             this.dgvLuong.Name = "dgvLuong";
+            this.dgvLuong.ReadOnly = true;
             this.dgvLuong.RowTemplate.Height = 24;
+            this.dgvLuong.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLuong.Size = new System.Drawing.Size(624, 183);
             this.dgvLuong.TabIndex = 1;
+            this.dgvLuong.Click += new System.EventHandler(this.dgvLuong_Click);
             // 
             // panel3
             // 
@@ -210,6 +240,7 @@
             this.btnExit.TabIndex = 7;
             this.btnExit.Text = "Th&oát";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnDelete
             // 
@@ -227,6 +258,7 @@
             this.btnDelete.TabIndex = 5;
             this.btnDelete.Text = "&Xoá";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnUpdate
             // 
@@ -244,6 +276,7 @@
             this.btnUpdate.TabIndex = 6;
             this.btnUpdate.Text = "&Sửa";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnSearch
             // 
@@ -261,6 +294,7 @@
             this.btnSearch.TabIndex = 3;
             this.btnSearch.Text = "&Tìm";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnAdd
             // 
@@ -278,36 +312,14 @@
             this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "T&hêm";
             this.btnAdd.UseVisualStyleBackColor = true;
-            // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.8F);
-            this.label6.Location = new System.Drawing.Point(129, 164);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(111, 22);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "HS Phụ cấp:";
-            // 
-            // txtHSPhuCap
-            // 
-            this.txtHSPhuCap.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtHSPhuCap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.8F);
-            this.txtHSPhuCap.Location = new System.Drawing.Point(244, 161);
-            this.txtHSPhuCap.Margin = new System.Windows.Forms.Padding(2);
-            this.txtHSPhuCap.Name = "txtHSPhuCap";
-            this.txtHSPhuCap.Size = new System.Drawing.Size(236, 27);
-            this.txtHSPhuCap.TabIndex = 2;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // frmLuong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(792, 467);
+            this.ControlBox = false;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -316,7 +328,9 @@
             this.MaximizeBox = false;
             this.Name = "frmLuong";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Trình độ học vấn";
+            this.Text = "Lương";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLuong_FormClosing);
+            this.Load += new System.EventHandler(this.frmLuong_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
