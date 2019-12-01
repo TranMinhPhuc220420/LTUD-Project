@@ -51,11 +51,11 @@ AS
 	WHERE MaHD = @maHD
 GO
 
-CREATE PROC sp_SelectAllHopDocLaoDon -- SELECT ALL
+CREATE PROC sp_SelectAllHopDongLaoDong -- SELECT ALL
 AS
 	SELECT * FROM HOPDONGLAODONG
 GO
-
+exec sp_SelectAllHopDongLaoDong
 CREATE PROC sp_SelectHopDongLaoDongByMaHD(@maHD VARCHAR(12)) -- SELECT BY MaHD
 AS
 	SELECT * FROM HOPDONGLAODONG
@@ -142,13 +142,40 @@ GO
 
 CREATE PROC sp_SelectAllNhanVien -- SELECT ALL NHANVIEN
 AS 
-	SELECT * FROM NHANVIEN
+	SELECT MaNV, TenNV, SDT, GIOITINH, NgaySinh, DanToc, QueQuan, nv.DiaChi, CMND,
+		pb.TenPB, cv.TenCV, tdhv.TenTDHV, l.LuongCB, hdld.LoaiHD
+	 FROM NHANVIEN nv
+	 JOIN PHONGBAN pb
+		ON pb.MaPB = nv.MaPB
+	 JOIN CHUCVU cv
+		ON cv.MaCV = nv.MaCV
+	 JOIN TRINHDOHOCVAN tdhv
+		ON tdhv.MaTDHV = nv.MaTDHV
+	 JOIN LUONG l
+		ON l.BacLuong = nv.BacLuong
+	 JOIN HOPDONGLAODONG hdld
+		ON hdld.MaHD = nv.MaHD
 GO
+
+exec sp_SelectAllNhanVien
 
 CREATE PROC sp_SelectNhanVienByMaNV(@maNV VARCHAR(12)) -- SELECT NHAN VIEN BY IN
 AS
-	SELECT * FROM NHANVIEN
-	WHERE NHANVIEN.MaNV = @maNV
+	SELECT MaNV, TenNV, SDT, GIOITINH, NgaySinh, DanToc, QueQuan, nv.DiaChi, CMND,
+		pb.TenPB, cv.TenCV, tdhv.TenTDHV, l.LuongCB, hdld.LoaiHD
+	 FROM NHANVIEN nv 
+	 JOIN PHONGBAN pb
+		ON pb.MaPB = nv.MaPB
+	 JOIN CHUCVU cv
+		ON cv.MaCV = nv.MaCV
+	 JOIN TRINHDOHOCVAN tdhv
+		ON tdhv.MaTDHV = nv.MaTDHV
+	 JOIN LUONG l
+		ON l.BacLuong = nv.BacLuong
+	 JOIN HOPDONGLAODONG hdld
+		ON hdld.MaHD = nv.MaHD
+	 WHERE nv.MaNV = @maNV
+
 GO
 
 -- TABLE PHONGBAN

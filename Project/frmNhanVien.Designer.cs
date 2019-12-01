@@ -28,17 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNhanVien));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.txtMaNVTim = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.txtLuongCB = new System.Windows.Forms.TextBox();
             this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.cbChucVu = new System.Windows.Forms.ComboBox();
             this.cbTrinhDoHocVan = new System.Windows.Forms.ComboBox();
             this.cbPhongBan = new System.Windows.Forms.ComboBox();
             this.cbGioTinh = new System.Windows.Forms.ComboBox();
+            this.cbLuong = new System.Windows.Forms.ComboBox();
             this.cbLoaiHopDong = new System.Windows.Forms.ComboBox();
             this.txtDanToc = new System.Windows.Forms.TextBox();
             this.txtCMND = new System.Windows.Forms.TextBox();
@@ -48,6 +49,8 @@
             this.txtQueQuan = new System.Windows.Forms.TextBox();
             this.txtMaNV = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnAddSub = new System.Windows.Forms.Button();
+            this.btnCancelAdd = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
@@ -69,11 +72,15 @@
             this.label10 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvNhanVien = new System.Windows.Forms.DataGridView();
+            this.errorTxt = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnCancelUpdate = new System.Windows.Forms.Button();
+            this.btnSubUpdate = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorTxt)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -105,24 +112,25 @@
             // 
             this.txtMaNVTim.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMaNVTim.Enabled = false;
             this.txtMaNVTim.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
-            this.txtMaNVTim.Location = new System.Drawing.Point(1009, 53);
+            this.txtMaNVTim.Location = new System.Drawing.Point(988, 53);
             this.txtMaNVTim.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtMaNVTim.Name = "txtMaNVTim";
             this.txtMaNVTim.Size = new System.Drawing.Size(353, 34);
             this.txtMaNVTim.TabIndex = 20;
             this.txtMaNVTim.Text = "nhập mã số nhân viên tìm...";
+            this.txtMaNVTim.Click += new System.EventHandler(this.txtMaNVTim_Click);
+            this.txtMaNVTim.TextChanged += new System.EventHandler(this.txtMaNVTim_TextChanged);
             // 
             // panel3
             // 
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel3.Controls.Add(this.txtLuongCB);
             this.panel3.Controls.Add(this.dtpNgaySinh);
             this.panel3.Controls.Add(this.cbChucVu);
             this.panel3.Controls.Add(this.cbTrinhDoHocVan);
             this.panel3.Controls.Add(this.cbPhongBan);
             this.panel3.Controls.Add(this.cbGioTinh);
+            this.panel3.Controls.Add(this.cbLuong);
             this.panel3.Controls.Add(this.cbLoaiHopDong);
             this.panel3.Controls.Add(this.txtDanToc);
             this.panel3.Controls.Add(this.txtCMND);
@@ -153,16 +161,6 @@
             this.panel3.Size = new System.Drawing.Size(1366, 484);
             this.panel3.TabIndex = 0;
             // 
-            // txtLuongCB
-            // 
-            this.txtLuongCB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtLuongCB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.8F);
-            this.txtLuongCB.Location = new System.Drawing.Point(724, 361);
-            this.txtLuongCB.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtLuongCB.Name = "txtLuongCB";
-            this.txtLuongCB.Size = new System.Drawing.Size(353, 32);
-            this.txtLuongCB.TabIndex = 14;
-            // 
             // dtpNgaySinh
             // 
             this.dtpNgaySinh.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -180,16 +178,11 @@
             this.cbChucVu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.cbChucVu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.8F);
             this.cbChucVu.FormattingEnabled = true;
-            this.cbChucVu.Items.AddRange(new object[] {
-            "Chức vụ 1",
-            "Chức vụ 2",
-            "Chức vụ 3",
-            "Chức vụ ...."});
             this.cbChucVu.Location = new System.Drawing.Point(724, 247);
             this.cbChucVu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbChucVu.Name = "cbChucVu";
             this.cbChucVu.Size = new System.Drawing.Size(353, 33);
-            this.cbChucVu.TabIndex = 12;
+            this.cbChucVu.TabIndex = 11;
             this.cbChucVu.Text = "Chức vụ...";
             // 
             // cbTrinhDoHocVan
@@ -197,16 +190,11 @@
             this.cbTrinhDoHocVan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.cbTrinhDoHocVan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.8F);
             this.cbTrinhDoHocVan.FormattingEnabled = true;
-            this.cbTrinhDoHocVan.Items.AddRange(new object[] {
-            "Trình độ học vấn 1",
-            "Trình độ học vấn 2",
-            "Trình độ học vấn 3",
-            "Trình độ học vấn ...."});
             this.cbTrinhDoHocVan.Location = new System.Drawing.Point(724, 304);
             this.cbTrinhDoHocVan.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbTrinhDoHocVan.Name = "cbTrinhDoHocVan";
             this.cbTrinhDoHocVan.Size = new System.Drawing.Size(353, 33);
-            this.cbTrinhDoHocVan.TabIndex = 13;
+            this.cbTrinhDoHocVan.TabIndex = 12;
             this.cbTrinhDoHocVan.Text = "Trình độ học vấn...";
             // 
             // cbPhongBan
@@ -214,16 +202,11 @@
             this.cbPhongBan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.cbPhongBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.8F);
             this.cbPhongBan.FormattingEnabled = true;
-            this.cbPhongBan.Items.AddRange(new object[] {
-            "Phòng ban 1",
-            "Phong ban 2",
-            "Phong ban 3 ",
-            "Phong ban ..."});
             this.cbPhongBan.Location = new System.Drawing.Point(724, 191);
             this.cbPhongBan.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbPhongBan.Name = "cbPhongBan";
             this.cbPhongBan.Size = new System.Drawing.Size(353, 33);
-            this.cbPhongBan.TabIndex = 11;
+            this.cbPhongBan.TabIndex = 10;
             this.cbPhongBan.Text = "Phòng ban...";
             // 
             // cbGioTinh
@@ -232,32 +215,35 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.cbGioTinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.8F);
             this.cbGioTinh.FormattingEnabled = true;
-            this.cbGioTinh.Items.AddRange(new object[] {
-            "Nam",
-            "Nữ",
-            "Khác"});
             this.cbGioTinh.Location = new System.Drawing.Point(186, 247);
             this.cbGioTinh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbGioTinh.Name = "cbGioTinh";
             this.cbGioTinh.Size = new System.Drawing.Size(353, 33);
-            this.cbGioTinh.TabIndex = 7;
-            this.cbGioTinh.Text = "Nam";
+            this.cbGioTinh.TabIndex = 4;
+            this.cbGioTinh.Text = "Giới tính...";
+            // 
+            // cbLuong
+            // 
+            this.cbLuong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.cbLuong.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.8F);
+            this.cbLuong.FormattingEnabled = true;
+            this.cbLuong.Location = new System.Drawing.Point(724, 361);
+            this.cbLuong.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cbLuong.Name = "cbLuong";
+            this.cbLuong.Size = new System.Drawing.Size(353, 33);
+            this.cbLuong.TabIndex = 13;
+            this.cbLuong.Text = "Lương...";
             // 
             // cbLoaiHopDong
             // 
             this.cbLoaiHopDong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.cbLoaiHopDong.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.8F);
             this.cbLoaiHopDong.FormattingEnabled = true;
-            this.cbLoaiHopDong.Items.AddRange(new object[] {
-            "HĐ 1",
-            "HĐ 2",
-            "HĐ 3",
-            "HĐ ..."});
             this.cbLoaiHopDong.Location = new System.Drawing.Point(724, 424);
             this.cbLoaiHopDong.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbLoaiHopDong.Name = "cbLoaiHopDong";
             this.cbLoaiHopDong.Size = new System.Drawing.Size(353, 33);
-            this.cbLoaiHopDong.TabIndex = 15;
+            this.cbLoaiHopDong.TabIndex = 14;
             this.cbLoaiHopDong.Text = "Loại hợp đồng...";
             // 
             // txtDanToc
@@ -279,7 +265,7 @@
             this.txtCMND.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCMND.Name = "txtCMND";
             this.txtCMND.Size = new System.Drawing.Size(353, 32);
-            this.txtCMND.TabIndex = 10;
+            this.txtCMND.TabIndex = 9;
             // 
             // txtSDT
             // 
@@ -300,7 +286,7 @@
             this.txtDiaChi.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(353, 32);
-            this.txtDiaChi.TabIndex = 9;
+            this.txtDiaChi.TabIndex = 8;
             // 
             // txtHoTen
             // 
@@ -322,7 +308,7 @@
             this.txtQueQuan.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtQueQuan.Name = "txtQueQuan";
             this.txtQueQuan.Size = new System.Drawing.Size(353, 32);
-            this.txtQueQuan.TabIndex = 8;
+            this.txtQueQuan.TabIndex = 7;
             // 
             // txtMaNV
             // 
@@ -339,6 +325,10 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.LightGray;
             this.panel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel4.BackgroundImage")));
+            this.panel4.Controls.Add(this.btnSubUpdate);
+            this.panel4.Controls.Add(this.btnAddSub);
+            this.panel4.Controls.Add(this.btnCancelUpdate);
+            this.panel4.Controls.Add(this.btnCancelAdd);
             this.panel4.Controls.Add(this.btnExit);
             this.panel4.Controls.Add(this.btnDelete);
             this.panel4.Controls.Add(this.btnUpdate);
@@ -350,6 +340,43 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(251, 484);
             this.panel4.TabIndex = 1;
+            // 
+            // btnAddSub
+            // 
+            this.btnAddSub.AccessibleDescription = "Thoát khỏi form nhân viên";
+            this.btnAddSub.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddSub.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnAddSub.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddSub.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddSub.ForeColor = System.Drawing.Color.White;
+            this.errorTxt.SetIconAlignment(this.btnAddSub, System.Windows.Forms.ErrorIconAlignment.BottomLeft);
+            this.btnAddSub.Location = new System.Drawing.Point(3, 99);
+            this.btnAddSub.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddSub.Name = "btnAddSub";
+            this.btnAddSub.Size = new System.Drawing.Size(119, 82);
+            this.btnAddSub.TabIndex = 21;
+            this.btnAddSub.Text = "&Thêm";
+            this.btnAddSub.UseVisualStyleBackColor = false;
+            this.btnAddSub.Visible = false;
+            this.btnAddSub.Click += new System.EventHandler(this.btnAddSub_Click);
+            // 
+            // btnCancelAdd
+            // 
+            this.btnCancelAdd.AccessibleDescription = "Thoát khỏi form nhân viên";
+            this.btnCancelAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelAdd.BackColor = System.Drawing.Color.Firebrick;
+            this.btnCancelAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelAdd.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold);
+            this.btnCancelAdd.ForeColor = System.Drawing.Color.White;
+            this.btnCancelAdd.Location = new System.Drawing.Point(128, 100);
+            this.btnCancelAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCancelAdd.Name = "btnCancelAdd";
+            this.btnCancelAdd.Size = new System.Drawing.Size(119, 81);
+            this.btnCancelAdd.TabIndex = 22;
+            this.btnCancelAdd.Text = "&Huỷ";
+            this.btnCancelAdd.UseVisualStyleBackColor = false;
+            this.btnCancelAdd.Visible = false;
+            this.btnCancelAdd.Click += new System.EventHandler(this.btnCancelAdd_Click);
             // 
             // btnExit
             // 
@@ -364,7 +391,7 @@
             this.btnExit.Name = "btnExit";
             this.btnExit.Padding = new System.Windows.Forms.Padding(24, 0, 0, 0);
             this.btnExit.Size = new System.Drawing.Size(244, 81);
-            this.btnExit.TabIndex = 19;
+            this.btnExit.TabIndex = 20;
             this.btnExit.Text = "Th&oát";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
@@ -382,9 +409,10 @@
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Padding = new System.Windows.Forms.Padding(24, 0, 0, 0);
             this.btnDelete.Size = new System.Drawing.Size(244, 81);
-            this.btnDelete.TabIndex = 17;
+            this.btnDelete.TabIndex = 18;
             this.btnDelete.Text = "&Xoá";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnUpdate
             // 
@@ -399,9 +427,10 @@
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Padding = new System.Windows.Forms.Padding(24, 0, 0, 0);
             this.btnUpdate.Size = new System.Drawing.Size(244, 81);
-            this.btnUpdate.TabIndex = 18;
+            this.btnUpdate.TabIndex = 19;
             this.btnUpdate.Text = "&Sửa";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnSearch
             // 
@@ -419,6 +448,7 @@
             this.btnSearch.TabIndex = 16;
             this.btnSearch.Text = "Tìm";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnAdd
             // 
@@ -433,7 +463,7 @@
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Padding = new System.Windows.Forms.Padding(24, 0, 0, 0);
             this.btnAdd.Size = new System.Drawing.Size(244, 81);
-            this.btnAdd.TabIndex = 16;
+            this.btnAdd.TabIndex = 17;
             this.btnAdd.Text = "&Thêm";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -624,6 +654,46 @@
             this.dgvNhanVien.TabIndex = 1;
             this.dgvNhanVien.Click += new System.EventHandler(this.dgvNhanVien_Click);
             // 
+            // errorTxt
+            // 
+            this.errorTxt.ContainerControl = this;
+            // 
+            // btnCancelUpdate
+            // 
+            this.btnCancelUpdate.AccessibleDescription = "Thoát khỏi form nhân viên";
+            this.btnCancelUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelUpdate.BackColor = System.Drawing.Color.Firebrick;
+            this.btnCancelUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelUpdate.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold);
+            this.btnCancelUpdate.ForeColor = System.Drawing.Color.White;
+            this.btnCancelUpdate.Location = new System.Drawing.Point(128, 295);
+            this.btnCancelUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCancelUpdate.Name = "btnCancelUpdate";
+            this.btnCancelUpdate.Size = new System.Drawing.Size(119, 81);
+            this.btnCancelUpdate.TabIndex = 24;
+            this.btnCancelUpdate.Text = "&Huỷ";
+            this.btnCancelUpdate.UseVisualStyleBackColor = false;
+            this.btnCancelUpdate.Visible = false;
+            this.btnCancelUpdate.Click += new System.EventHandler(this.btnCancelUpdate_Click);
+            // 
+            // btnSubUpdate
+            // 
+            this.btnSubUpdate.AccessibleDescription = "Thoát khỏi form nhân viên";
+            this.btnSubUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSubUpdate.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnSubUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSubUpdate.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubUpdate.ForeColor = System.Drawing.Color.White;
+            this.btnSubUpdate.Location = new System.Drawing.Point(3, 294);
+            this.btnSubUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSubUpdate.Name = "btnSubUpdate";
+            this.btnSubUpdate.Size = new System.Drawing.Size(119, 82);
+            this.btnSubUpdate.TabIndex = 23;
+            this.btnSubUpdate.Text = "&Sửa";
+            this.btnSubUpdate.UseVisualStyleBackColor = false;
+            this.btnSubUpdate.Visible = false;
+            this.btnSubUpdate.Click += new System.EventHandler(this.btnSubUpdate_Click);
+            // 
             // frmNhanVien
             // 
             this.AllowDrop = true;
@@ -642,6 +712,7 @@
             this.Name = "frmNhanVien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nhân Viên";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmNhanVien_FormClosing);
             this.Load += new System.EventHandler(this.frmNhanVien_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -650,6 +721,7 @@
             this.panel4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorTxt)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -695,6 +767,11 @@
         private System.Windows.Forms.TextBox txtMaNVTim;
         private System.Windows.Forms.ComboBox cbGioTinh;
         private System.Windows.Forms.DataGridView dgvNhanVien;
-        private System.Windows.Forms.TextBox txtLuongCB;
+        private System.Windows.Forms.ErrorProvider errorTxt;
+        private System.Windows.Forms.Button btnAddSub;
+        private System.Windows.Forms.Button btnCancelAdd;
+        private System.Windows.Forms.ComboBox cbLuong;
+        private System.Windows.Forms.Button btnSubUpdate;
+        private System.Windows.Forms.Button btnCancelUpdate;
     }
 }

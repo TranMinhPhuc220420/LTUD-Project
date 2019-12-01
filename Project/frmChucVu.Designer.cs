@@ -34,6 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtMaCVTim = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnUpdateSub = new System.Windows.Forms.Button();
             this.btnCancelAdd = new System.Windows.Forms.Button();
             this.txtTenCV = new System.Windows.Forms.TextBox();
             this.btnAddSub = new System.Windows.Forms.Button();
@@ -82,17 +83,19 @@
             // txtMaCVTim
             // 
             this.txtMaCVTim.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.txtMaCVTim.Enabled = false;
             this.txtMaCVTim.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.8F);
-            this.txtMaCVTim.Location = new System.Drawing.Point(831, 74);
+            this.txtMaCVTim.Location = new System.Drawing.Point(808, 76);
             this.txtMaCVTim.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMaCVTim.Name = "txtMaCVTim";
             this.txtMaCVTim.Size = new System.Drawing.Size(352, 32);
             this.txtMaCVTim.TabIndex = 8;
             this.txtMaCVTim.Text = "nhập mã chức vụ tìm...";
+            this.txtMaCVTim.Click += new System.EventHandler(this.txtMaCVTim_Click);
+            this.txtMaCVTim.TextChanged += new System.EventHandler(this.txtMaCVTim_TextChanged);
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnUpdateSub);
             this.panel2.Controls.Add(this.btnCancelAdd);
             this.panel2.Controls.Add(this.txtTenCV);
             this.panel2.Controls.Add(this.btnAddSub);
@@ -107,6 +110,26 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1188, 506);
             this.panel2.TabIndex = 1;
+            // 
+            // btnUpdateSub
+            // 
+            this.btnUpdateSub.AccessibleDescription = "Thoát khỏi form nhân viên";
+            this.btnUpdateSub.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnUpdateSub.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnUpdateSub.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUpdateSub.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateSub.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdateSub.Image")));
+            this.btnUpdateSub.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUpdateSub.Location = new System.Drawing.Point(444, 167);
+            this.btnUpdateSub.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnUpdateSub.Name = "btnUpdateSub";
+            this.btnUpdateSub.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
+            this.btnUpdateSub.Size = new System.Drawing.Size(196, 53);
+            this.btnUpdateSub.TabIndex = 9;
+            this.btnUpdateSub.Text = "&Sửa";
+            this.btnUpdateSub.UseVisualStyleBackColor = false;
+            this.btnUpdateSub.Visible = false;
+            this.btnUpdateSub.Click += new System.EventHandler(this.btnUpdateSub_Click);
             // 
             // btnCancelAdd
             // 
@@ -241,6 +264,7 @@
             this.btnExit.TabIndex = 7;
             this.btnExit.Text = "Th&oát";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnDelete
             // 
@@ -276,6 +300,7 @@
             this.btnUpdate.TabIndex = 6;
             this.btnUpdate.Text = "&Sửa";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnSearch
             // 
@@ -293,6 +318,7 @@
             this.btnSearch.TabIndex = 3;
             this.btnSearch.Text = "&Tìm";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnAdd
             // 
@@ -363,5 +389,6 @@
         private System.Windows.Forms.Button btnCancelAdd;
         private System.Windows.Forms.Button btnAddSub;
         private System.Windows.Forms.ErrorProvider errorTxt;
+        private System.Windows.Forms.Button btnUpdateSub;
     }
 }

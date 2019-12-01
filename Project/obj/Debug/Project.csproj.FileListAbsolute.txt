@@ -70,3 +70,4 @@ C:\Users\PC\Desktop\LTUD-Project\Project\bin\Debug\Project.exe.config
 C:\Users\PC\Desktop\LTUD-Project\Project\bin\Debug\Project.exe
 C:\Users\PC\Desktop\LTUD-Project\Project\bin\Debug\Project.pdb
 C:\Users\PC\Desktop\LTUD-Project\Project\obj\Debug\Project.frmLuong.resources
+C:\Users\SKT_B\OneDrive\Documents\GitHub\LTUD-Project\Project\obj\Debug\Project.frmLuong.resources

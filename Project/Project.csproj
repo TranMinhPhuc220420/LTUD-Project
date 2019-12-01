@@ -47,7 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="classSupport\ComboboxItem.cs" />
+    <Compile Include="classSupport\ShowMessageBox.cs" />
     <Compile Include="clsKetNoiDB.cs" />
+    <Compile Include="Exciption\QLNSException.cs" />
     <Compile Include="frmChucVu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +100,13 @@
       <DependentUpon>frmTrinhDoHocVan.cs</DependentUpon>
     </Compile>
     <Compile Include="handleDatabase.cs" />
+    <Compile Include="model\AdminModel.cs" />
+    <Compile Include="model\ChucVuModel.cs" />
+    <Compile Include="model\HopDongModel.cs" />
+    <Compile Include="model\LuongModel.cs" />
+    <Compile Include="model\NhanVienModel.cs" />
+    <Compile Include="model\PhongBanModel.cs" />
+    <Compile Include="model\TrinhDoHocVanModel.cs" />
     <Compile Include="Program.cs">
       <SubType>Code</SubType>
     </Compile>

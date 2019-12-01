@@ -19,7 +19,9 @@ namespace Project
 
         private void frmMDIMain_Load(object sender, EventArgs e)
         {
-            //load form menu main
+            frmLogin frmLogin = new frmLogin();
+            frmLogin.MdiParent = this;
+            frmLogin.Show();
         }
          
         private void thoátChươngTrìnhToolStripMenuItem_Click(object sender, EventArgs e)
@@ -68,6 +70,27 @@ namespace Project
             frmChucVu frmChucVu = new frmChucVu();
             frmChucVu.MdiParent = this;
             frmChucVu.Show();
+        }
+
+        private void luongToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLuong frmLuong = new frmLuong();
+            frmLuong.MdiParent = this;
+            frmLuong.Show();
+        }
+
+        private void phongBanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPhongBan frmPhongBan = new frmPhongBan();
+            frmPhongBan.MdiParent = this;
+            frmPhongBan.Show();
+        }
+
+        private void trinhDoHocVanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmTDHV frmTDHV = new frmTDHV();
+            frmTDHV.MdiParent = this;
+            frmTDHV.Show();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿USE [master]
 GO
+ 
 /****** Object:  Database [QLNS]    Script Date: 11/24/2019 1:52:55 PM ******/
 CREATE DATABASE QLNS;
 GO
