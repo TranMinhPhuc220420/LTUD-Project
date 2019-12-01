@@ -83,8 +83,8 @@ AS
 		HSPhuCap = @HSPhuCap
 	WHERE BacLuong = @batLuong
 GO
-
-CREATE PROC sp_SelectLuong -- SELECT ALL TABLE LUONG
+ 
+CREATE PROC sp_SelectAllLuong -- SELECT ALL TABLE LUONG
 AS
 	SELECT * FROM LUONG
 GO
