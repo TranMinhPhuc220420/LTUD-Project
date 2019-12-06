@@ -35,7 +35,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtMaHD = new System.Windows.Forms.TextBox();
-            this.cbLoaiHD = new System.Windows.Forms.ComboBox();
             this.dtStart = new System.Windows.Forms.DateTimePicker();
             this.dtEnd = new System.Windows.Forms.DateTimePicker();
             this.dgvHDLD = new System.Windows.Forms.DataGridView();
@@ -44,6 +43,7 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.txtLoaiHD = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHDLD)).BeginInit();
             this.SuspendLayout();
             // 
@@ -125,18 +125,6 @@
             this.txtMaHD.Name = "txtMaHD";
             this.txtMaHD.Size = new System.Drawing.Size(465, 24);
             this.txtMaHD.TabIndex = 7;
-            // 
-            // cbLoaiHD
-            // 
-            this.cbLoaiHD.AllowDrop = true;
-            this.cbLoaiHD.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbLoaiHD.FormattingEnabled = true;
-            this.cbLoaiHD.Location = new System.Drawing.Point(199, 103);
-            this.cbLoaiHD.Name = "cbLoaiHD";
-            this.cbLoaiHD.Size = new System.Drawing.Size(520, 26);
-            this.cbLoaiHD.TabIndex = 9;
             // 
             // dtStart
             // 
@@ -263,12 +251,24 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
+            // txtLoaiHD
+            // 
+            this.txtLoaiHD.AllowDrop = true;
+            this.txtLoaiHD.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtLoaiHD.Location = new System.Drawing.Point(199, 100);
+            this.txtLoaiHD.Name = "txtLoaiHD";
+            this.txtLoaiHD.Size = new System.Drawing.Size(465, 24);
+            this.txtLoaiHD.TabIndex = 23;
+            // 
             // frmHopDongLaoDong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(995, 696);
             this.ControlBox = false;
+            this.Controls.Add(this.txtLoaiHD);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnUpdate);
@@ -277,7 +277,6 @@
             this.Controls.Add(this.dgvHDLD);
             this.Controls.Add(this.dtEnd);
             this.Controls.Add(this.dtStart);
-            this.Controls.Add(this.cbLoaiHD);
             this.Controls.Add(this.txtMaHD);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -305,7 +304,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtMaHD;
-        private System.Windows.Forms.ComboBox cbLoaiHD;
         private System.Windows.Forms.DateTimePicker dtStart;
         private System.Windows.Forms.DateTimePicker dtEnd;
         private System.Windows.Forms.DataGridView dgvHDLD;
@@ -314,5 +312,6 @@
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.TextBox txtLoaiHD;
     }
 }

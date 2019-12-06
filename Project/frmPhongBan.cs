@@ -33,6 +33,16 @@ namespace Project
         private void FrmPhongBan_Load(object sender, EventArgs e)
         {
             getPhongBan();
+            try
+            {
+                dgvPhongBan.DataSource = ketnoi.LayDSPhongBan();
+                dgvPhongBan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                ketnoi.setComboboxData("sp_SelectAllNhanVien", cbMaTP, "maNV");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi. " + ex.Message);
+            }
         }
 
         //EXIT FUNCTION

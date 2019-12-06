@@ -27,7 +27,25 @@ namespace Project
             }
         }
 
-//I.PHONGBAN
+        //SET DATA TO COMBOBOX
+        public void setComboboxData(String spName, ComboBox cb, String sValue)
+        {
+            try
+            {
+                DataTable DT = new DataTable();
+                SqlCommand cmd = new SqlCommand(spName, conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter SA = new SqlDataAdapter(cmd);
+                SA.Fill(DT);
+                cb.DataSource = DT;
+                cb.ValueMember = sValue;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        //I.PHONGBAN
         //SELECT ALL ROW OF TABLE PHONGBAN
         public DataTable LayDSPhongBan()
         {

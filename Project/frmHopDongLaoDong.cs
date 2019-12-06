@@ -64,7 +64,7 @@ namespace Project
             //lay dòng vừa click
             int row = dgvHDLD.CurrentCell.RowIndex;
             txtMaHD.Text = dgvHDLD.Rows[row].Cells[0].Value.ToString();
-            cbLoaiHD.Text = dgvHDLD.Rows[row].Cells[1].Value.ToString();
+            txtLoaiHD.Text = dgvHDLD.Rows[row].Cells[1].Value.ToString();
             dtStart.Text = dgvHDLD.Rows[row].Cells[2].Value.ToString();
             dtEnd.Text = dgvHDLD.Rows[row].Cells[3].Value.ToString();
         }
@@ -88,9 +88,9 @@ namespace Project
             //goi thuc thi
             try
             {
-                if(txtMaHD.Text != string.Empty && cbLoaiHD.Text != string.Empty && dtStart.Text != string.Empty && dtEnd.Text != string.Empty)
+                if(txtMaHD.Text != string.Empty && txtLoaiHD.Text != string.Empty && dtStart.Text != string.Empty && dtEnd.Text != string.Empty)
                 {
-                    if (ketnoi.ThemHopDong(txtMaHD.Text, cbLoaiHD.Text, dtStart.Text, dtEnd.Text) == 1)
+                    if (ketnoi.ThemHopDong(txtMaHD.Text, txtLoaiHD.Text, dtStart.Text, dtEnd.Text) == 1)
                     {
                         MessageBox.Show("Đã thêm thành công", "Thêm", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         getHopDongLaoDong();
@@ -143,7 +143,7 @@ namespace Project
             //goi thuc thi
             try
             {
-                if (ketnoi.SuaHopDong(txtMaHD.Text, cbLoaiHD.Text, dtStart.Text, dtEnd.Text) == 1)
+                if (ketnoi.SuaHopDong(txtMaHD.Text, txtLoaiHD.Text, dtStart.Text, dtEnd.Text) == 1)
                 {
                     MessageBox.Show("Đã sửa thành công", "Sửa", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     getHopDongLaoDong();
