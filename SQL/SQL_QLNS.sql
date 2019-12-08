@@ -362,7 +362,7 @@ GO
 
 --insert tbale TAIKHOAN
 INSERT dbo.TAIKHOAN(MaNV,MatKhau,VaiTro)
-VALUES ( 'NV01', '123', 1)
+VALUES ( 'NV01', '123', 1)	
 GO
 
 INSERT dbo.TAIKHOAN(MaNV,MatKhau,VaiTro)

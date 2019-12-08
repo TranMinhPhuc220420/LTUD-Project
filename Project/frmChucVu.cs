@@ -76,8 +76,8 @@ namespace Project
         */
         private void clearTxtInput()
         {
-            txtMaCV.Text = " ";
-            txtTenCV.Text = " ";
+            txtMaCV.Text = "";
+            txtTenCV.Text = "";
         }
 
         private void setTxtDefault()
@@ -153,7 +153,6 @@ namespace Project
             if (txtMaCV.Text == string.Empty)
             {
                 errorTxt.SetError(txtMaCV, "Dữ liệu còn thiếu");
-                MessageBox.Show("Dữ liệu Mã Chức Vụ đang còn trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -166,7 +165,6 @@ namespace Project
             if (txtTenCV.Text == string.Empty)
             {
                 errorTxt.SetError(txtTenCV, "Dữ liệu còn thiếu");
-                MessageBox.Show("Dữ liệu Tên Chức Vụ đang còn trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -227,6 +225,10 @@ namespace Project
                 enbledAllBtnFunctuinMain();
 
                 this.AcceptButton = btnUpdateSub;
+            }
+            else
+            {
+                MessageBox.Show("Dữ liệu Mã Chức Vụ đang còn trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -361,35 +363,43 @@ namespace Project
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            DialogResult result = new DialogResult();
-
-            result = MessageBox.Show(
-                "Bạn có chắc chắn muốn xoá Chức Vụ " + txtTenCV.Text + " không?",
-                "Thông báo",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Warning);
-
-            if (result == DialogResult.Yes)
+            if (!isTxtEmpty())
             {
-                try
-                {
-                    //Thuc thu xoa chuc vu
-                    this.chucVu.delete(txtMaCV.Text);
-                   
-                    //reload table chuc vu
-                    loadTableChucVu();
-                    ShowMessageBox.information("Xoá thành công");
 
-                    clearTxtInput();
-                }
-                catch (DeleteException cvDelEx)
+                DialogResult result = new DialogResult();
+
+                result = MessageBox.Show(
+                    "Bạn có chắc chắn muốn xoá Chức Vụ " + txtTenCV.Text + " không?",
+                    "Thông báo",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
                 {
-                    ShowMessageBox.erorr(cvDelEx.Message);
+                    try
+                    {
+                        //Thuc thu xoa chuc vu
+                        this.chucVu.delete(txtMaCV.Text);
+
+                        //reload table chuc vu
+                        loadTableChucVu();
+                        ShowMessageBox.information("Xoá thành công");
+
+                        clearTxtInput();
+                    }
+                    catch (DeleteException cvDelEx)
+                    {
+                        ShowMessageBox.erorr(cvDelEx.Message);
+                    }
+                    catch (Exception ex)
+                    {
+                        ShowMessageBox.erorr(ex.Message);
+                    }
                 }
-                catch(Exception ex)
-                {
-                    ShowMessageBox.erorr(ex.Message);
-                }
+            }
+            else
+            {
+                MessageBox.Show("Dữ liệu Mã Chức Vụ đang còn trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

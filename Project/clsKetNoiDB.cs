@@ -11,17 +11,18 @@ namespace Project
 {
     class clsKetNoiDB
     {
-        //KHỞI TẠO 
-        SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=QLNS;Integrated Security=True");
-        
+        //KHỞI TẠO ư
+        handleDatabase handleDatabase = new handleDatabase();
+        SqlConnection conn;
+
         //CONSTRUCTOR
         public clsKetNoiDB()
         {
             try
             {
-                conn.Open();
+                this.conn = this.handleDatabase.getSqlConnection();
             }
-            catch(SqlException ex)
+            catch (SqlException ex)
             {
                 MessageBox.Show("Lỗi " + ex.Message);
             }
@@ -30,6 +31,7 @@ namespace Project
         //SET DATA TO COMBOBOX
         public void setComboboxData(String spName, ComboBox cb, String sValue)
         {
+            this.conn = this.handleDatabase.getSqlConnection();
             try
             {
                 DataTable DT = new DataTable();
@@ -49,21 +51,23 @@ namespace Project
         //SELECT ALL ROW OF TABLE PHONGBAN
         public DataTable LayDSPhongBan()
         {
+            this.conn = this.handleDatabase.getSqlConnection();
             DataTable dtPhongBan = new DataTable();
-            string spName = "sp_SelectAllPhongBan";
+            string spName = "[dbo].[sp_SelectAllPhongBan]";
             SqlCommand cmdPhongBan = new SqlCommand(spName, conn);
             cmdPhongBan.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter daPhongBan = new SqlDataAdapter(cmdPhongBan);
             daPhongBan.Fill(dtPhongBan);
             return dtPhongBan;
-            
+
         }
 
         //SelectPhongBanByMaPB
         public DataTable SelectPhongBanByMaPB(string maPB)
         {
+            this.conn = this.handleDatabase.getSqlConnection();
             DataTable dtPhongBan = new DataTable();
-            string spName = "sp_SelectPhongBanByMaPB";
+            string spName = "[dbo].[sp_SelectPhongBanByMaPB]";
             SqlCommand cmdTim = new SqlCommand(spName, conn);
             cmdTim.CommandType = CommandType.StoredProcedure;
             cmdTim.Parameters.Add(new SqlParameter("@maPB", maPB));
@@ -75,7 +79,8 @@ namespace Project
         //ADD FUNCTION
         public int ThemPhongBan(string maPB, string tenPB, string diaChi, string maTP)
         {
-            string spName = "sp_InsertPhongBan";
+            this.conn = this.handleDatabase.getSqlConnection();
+            string spName = "[dbo].[sp_InsertPhongBan]";
             SqlCommand cmdThem = new SqlCommand(spName, conn);
             cmdThem.CommandText = spName;
             cmdThem.CommandType = CommandType.StoredProcedure;
@@ -98,7 +103,8 @@ namespace Project
         //DELETE FUNCTION
         public int XoaPhongBan(string maPB)
         {
-            string spName = "sp_DeletePhongBan";
+            this.conn = this.handleDatabase.getSqlConnection();
+            string spName = "[dbo].[sp_DeletePhongBan]";
             SqlCommand cmdXoa = new SqlCommand(spName, conn);
             cmdXoa.CommandText = spName;
             cmdXoa.CommandType = CommandType.StoredProcedure;
@@ -118,7 +124,8 @@ namespace Project
         //UPDATE FUNCTION
         public int SuaPhongBan(string maPB, string tenPB, string diaChi, string maTP)
         {
-            string spName = "sp_UpdatePhongBan";
+            this.conn = this.handleDatabase.getSqlConnection();
+            string spName = "[dbo].[sp_UpdatePhongBan]";
             SqlCommand cmdSua = new SqlCommand(spName, conn);
             cmdSua.CommandText = spName;
             cmdSua.CommandType = CommandType.StoredProcedure;
@@ -138,12 +145,13 @@ namespace Project
             }
         }
 
-//II.HOPDONGLAODONG
+        //II.HOPDONGLAODONG
         //SELECT ALL ROW OF TABLE HOPDONGLAODONG
         public DataTable LayDSHopDong()
         {
+            this.conn = this.handleDatabase.getSqlConnection();
             DataTable dtHopDong = new DataTable();
-            string spName = "sp_SelectAllHopDocLaoDon";
+            string spName = "[dbo].[sp_SelectAllHopDongLaoDong]";
             SqlCommand cmdHopDong = new SqlCommand(spName, conn);
             cmdHopDong.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter daPhongBan = new SqlDataAdapter(cmdHopDong);
@@ -154,8 +162,9 @@ namespace Project
         //SelectHopDongByMaHD
         public DataTable SelectHopDongByMaHD(string maHD)
         {
+            this.conn = this.handleDatabase.getSqlConnection();
             DataTable dtHopDong = new DataTable();
-            string spName = "sp_SelectHopDongLaoDongByMaHD";
+            string spName = "[dbo].[sp_SelectHopDongLaoDongByMaHD]";
             SqlCommand cmdTim = new SqlCommand(spName, conn);
             cmdTim.CommandType = CommandType.StoredProcedure;
             cmdTim.Parameters.Add(new SqlParameter("@maHD", maHD));
@@ -167,7 +176,8 @@ namespace Project
         //ADD ThemHopDong FUNCTION
         public int ThemHopDong(string maHD, string loaiHD, string tuNgay, string denNgay)
         {
-            string spName = "sp_InsertHopDongLaoDong";
+            this.conn = this.handleDatabase.getSqlConnection();
+            string spName = "[dbo].[sp_InsertHopDongLaoDong]";
             SqlCommand cmdThem = new SqlCommand(spName, conn);
             cmdThem.CommandText = spName;
             cmdThem.CommandType = CommandType.StoredProcedure;
@@ -190,7 +200,8 @@ namespace Project
         //DELETE XoaHopDong FUNCTION
         public int XoaHopDong(string maHD)
         {
-            string spName = "sp_DeleteHopDongLaoDong";
+            this.conn = this.handleDatabase.getSqlConnection();
+            string spName = "[dbo].[sp_DeleteHopDongLaoDong]";
             SqlCommand cmdXoa = new SqlCommand(spName, conn);
             cmdXoa.CommandText = spName;
             cmdXoa.CommandType = CommandType.StoredProcedure;
@@ -210,7 +221,8 @@ namespace Project
         //UPDATE SuaHopDong FUNCTION
         public int SuaHopDong(string maHD, string loaiHD, string tuNgay, string denNgay)
         {
-            string spName = "sp_UpdateHopDongLaoDong";
+            this.conn = this.handleDatabase.getSqlConnection();
+            string spName = "[dbo].[sp_UpdateHopDongLaoDong]";
             SqlCommand cmdSua = new SqlCommand(spName, conn);
             cmdSua.CommandText = spName;
             cmdSua.CommandType = CommandType.StoredProcedure;

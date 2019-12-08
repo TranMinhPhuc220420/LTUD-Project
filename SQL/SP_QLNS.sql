@@ -55,7 +55,7 @@ CREATE PROC sp_SelectAllHopDongLaoDong -- SELECT ALL
 AS
 	SELECT * FROM HOPDONGLAODONG
 GO
-exec sp_SelectAllHopDongLaoDong
+ 
 CREATE PROC sp_SelectHopDongLaoDongByMaHD(@maHD VARCHAR(12)) -- SELECT BY MaHD
 AS
 	SELECT * FROM HOPDONGLAODONG
@@ -157,7 +157,7 @@ AS
 		ON hdld.MaHD = nv.MaHD
 GO
 
-exec sp_SelectAllNhanVien
+ 
 
 CREATE PROC sp_SelectNhanVienByMaNV(@maNV VARCHAR(12)) -- SELECT NHAN VIEN BY IN
 AS

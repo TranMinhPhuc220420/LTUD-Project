@@ -19,14 +19,13 @@ namespace Project
         }
 
         public SqlConnection getConnection() {
-            string connection = "Data Source=MT-PC\\MT;Initial Catalog=QLNS;Integrated Security=True";
-            SqlConnection cnn = new SqlConnection(connection);
+            handleDatabase handleDatabase = new handleDatabase();
+            SqlConnection cnn = handleDatabase.getSqlConnection();
             return cnn;
         }
 
         public void getTDHV() {
             SqlConnection cnn = getConnection();
-            cnn.Open();
             DataTable dtTDHV = new DataTable();
             SqlCommand cmdTDHV = new SqlCommand("sp_SelectAllTrinhDoHocVan", cnn);
             SqlDataAdapter daTDHV = new SqlDataAdapter(cmdTDHV);
@@ -40,7 +39,6 @@ namespace Project
 
         public int ThemTDHV(string maTDHV, string tenTDHV, string cNganh) {
             SqlConnection cnn = getConnection();
-            cnn.Open();
             int status = 0;
             try
             {
@@ -68,7 +66,6 @@ namespace Project
 
         public int XoaTDHV(string maTDHV) {
             SqlConnection cnn = getConnection();
-            cnn.Open();
             int status = 0;
             try
             {
@@ -95,7 +92,7 @@ namespace Project
         public int suaTDHV(string maTDHV, string tenTDHV, string cNganh)
         {
             SqlConnection cnn = getConnection();
-            cnn.Open();
+           
             int status = 0;
             try
             {
@@ -125,7 +122,7 @@ namespace Project
             try
             {
                 SqlConnection cnn = getConnection();
-                cnn.Open();
+               
                 DataTable dtTim = new DataTable();
                 SqlCommand cmdTim = new SqlCommand("sp_SelectTrinhDoHocVanByMaTDHV", cnn);
                 cmdTim.CommandType = CommandType.StoredProcedure;
@@ -179,14 +176,35 @@ namespace Project
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (ThemTDHV(txtMaTDHV.Text, txtTenTDHV.Text, txtChuyenNghanh.Text) != 0)
+           if(txtMaTDHV.Text == string.Empty)
             {
-                MessageBox.Show("Thêm thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                getTDHV();
+                MessageBox.Show("Chưa nhập mã trình đồ học vấn");
             }
             else
             {
-                MessageBox.Show("Thêm thất bại!", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (txtTenTDHV.Text == string.Empty)
+                {
+                    MessageBox.Show("Chưa nhập tên trình đồ học vấn");
+                }
+                else
+                {
+                    if(txtChuyenNghanh.Text == string.Empty)
+                    {
+                        MessageBox.Show("Chưa nhập chuyên ngành của trình đồ học vấn");
+                    }
+                    else
+                    {
+                        if (ThemTDHV(txtMaTDHV.Text, txtTenTDHV.Text, txtChuyenNghanh.Text) != 0)
+                        {
+                            MessageBox.Show("Thêm thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            getTDHV();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Thêm thất bại!", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
             }
         }
 

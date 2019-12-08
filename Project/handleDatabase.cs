@@ -22,7 +22,7 @@ namespace Project
         /// </summary>
         public handleDatabase()
         {
-            this.connSV.ConnectionString = "Data Source=DESKTOP-N36TKI7;Initial Catalog=QLNS;Integrated Security=True";
+            this.connSV.ConnectionString = "Data Source=DESKTOP-6H964SA;Initial Catalog=QLNS;Integrated Security=True";
             this.connSV.Open();
         }
 
@@ -38,7 +38,14 @@ namespace Project
         }
 
 
-
+        /*
+         *  _____ GET ____
+         */
+         public SqlConnection getSqlConnection()
+        {
+            setConnSVOpen();
+            return this.connSV;
+        }
 
 
         /*

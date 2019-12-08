@@ -49,7 +49,9 @@
             this.txtQueQuan = new System.Windows.Forms.TextBox();
             this.txtMaNV = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnSubUpdate = new System.Windows.Forms.Button();
             this.btnAddSub = new System.Windows.Forms.Button();
+            this.btnCancelUpdate = new System.Windows.Forms.Button();
             this.btnCancelAdd = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -73,8 +75,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvNhanVien = new System.Windows.Forms.DataGridView();
             this.errorTxt = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btnCancelUpdate = new System.Windows.Forms.Button();
-            this.btnSubUpdate = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -117,7 +117,7 @@
             this.txtMaNVTim.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtMaNVTim.Name = "txtMaNVTim";
             this.txtMaNVTim.Size = new System.Drawing.Size(353, 34);
-            this.txtMaNVTim.TabIndex = 20;
+            this.txtMaNVTim.TabIndex = 15;
             this.txtMaNVTim.Text = "nhập mã số nhân viên tìm...";
             this.txtMaNVTim.Click += new System.EventHandler(this.txtMaNVTim_Click);
             this.txtMaNVTim.TextChanged += new System.EventHandler(this.txtMaNVTim_TextChanged);
@@ -341,6 +341,24 @@
             this.panel4.Size = new System.Drawing.Size(251, 484);
             this.panel4.TabIndex = 1;
             // 
+            // btnSubUpdate
+            // 
+            this.btnSubUpdate.AccessibleDescription = "Thoát khỏi form nhân viên";
+            this.btnSubUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSubUpdate.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnSubUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSubUpdate.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubUpdate.ForeColor = System.Drawing.Color.White;
+            this.btnSubUpdate.Location = new System.Drawing.Point(3, 294);
+            this.btnSubUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSubUpdate.Name = "btnSubUpdate";
+            this.btnSubUpdate.Size = new System.Drawing.Size(119, 82);
+            this.btnSubUpdate.TabIndex = 23;
+            this.btnSubUpdate.Text = "&Sửa";
+            this.btnSubUpdate.UseVisualStyleBackColor = false;
+            this.btnSubUpdate.Visible = false;
+            this.btnSubUpdate.Click += new System.EventHandler(this.btnSubUpdate_Click);
+            // 
             // btnAddSub
             // 
             this.btnAddSub.AccessibleDescription = "Thoát khỏi form nhân viên";
@@ -359,6 +377,24 @@
             this.btnAddSub.UseVisualStyleBackColor = false;
             this.btnAddSub.Visible = false;
             this.btnAddSub.Click += new System.EventHandler(this.btnAddSub_Click);
+            // 
+            // btnCancelUpdate
+            // 
+            this.btnCancelUpdate.AccessibleDescription = "Thoát khỏi form nhân viên";
+            this.btnCancelUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelUpdate.BackColor = System.Drawing.Color.Firebrick;
+            this.btnCancelUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelUpdate.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold);
+            this.btnCancelUpdate.ForeColor = System.Drawing.Color.White;
+            this.btnCancelUpdate.Location = new System.Drawing.Point(128, 295);
+            this.btnCancelUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCancelUpdate.Name = "btnCancelUpdate";
+            this.btnCancelUpdate.Size = new System.Drawing.Size(119, 81);
+            this.btnCancelUpdate.TabIndex = 24;
+            this.btnCancelUpdate.Text = "&Huỷ";
+            this.btnCancelUpdate.UseVisualStyleBackColor = false;
+            this.btnCancelUpdate.Visible = false;
+            this.btnCancelUpdate.Click += new System.EventHandler(this.btnCancelUpdate_Click);
             // 
             // btnCancelAdd
             // 
@@ -649,6 +685,7 @@
             this.dgvNhanVien.Location = new System.Drawing.Point(0, 484);
             this.dgvNhanVien.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvNhanVien.Name = "dgvNhanVien";
+            this.dgvNhanVien.RowHeadersWidth = 51;
             this.dgvNhanVien.RowTemplate.Height = 24;
             this.dgvNhanVien.Size = new System.Drawing.Size(1366, 276);
             this.dgvNhanVien.TabIndex = 1;
@@ -657,42 +694,6 @@
             // errorTxt
             // 
             this.errorTxt.ContainerControl = this;
-            // 
-            // btnCancelUpdate
-            // 
-            this.btnCancelUpdate.AccessibleDescription = "Thoát khỏi form nhân viên";
-            this.btnCancelUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancelUpdate.BackColor = System.Drawing.Color.Firebrick;
-            this.btnCancelUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancelUpdate.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold);
-            this.btnCancelUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnCancelUpdate.Location = new System.Drawing.Point(128, 295);
-            this.btnCancelUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCancelUpdate.Name = "btnCancelUpdate";
-            this.btnCancelUpdate.Size = new System.Drawing.Size(119, 81);
-            this.btnCancelUpdate.TabIndex = 24;
-            this.btnCancelUpdate.Text = "&Huỷ";
-            this.btnCancelUpdate.UseVisualStyleBackColor = false;
-            this.btnCancelUpdate.Visible = false;
-            this.btnCancelUpdate.Click += new System.EventHandler(this.btnCancelUpdate_Click);
-            // 
-            // btnSubUpdate
-            // 
-            this.btnSubUpdate.AccessibleDescription = "Thoát khỏi form nhân viên";
-            this.btnSubUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSubUpdate.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnSubUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSubUpdate.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnSubUpdate.Location = new System.Drawing.Point(3, 294);
-            this.btnSubUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnSubUpdate.Name = "btnSubUpdate";
-            this.btnSubUpdate.Size = new System.Drawing.Size(119, 82);
-            this.btnSubUpdate.TabIndex = 23;
-            this.btnSubUpdate.Text = "&Sửa";
-            this.btnSubUpdate.UseVisualStyleBackColor = false;
-            this.btnSubUpdate.Visible = false;
-            this.btnSubUpdate.Click += new System.EventHandler(this.btnSubUpdate_Click);
             // 
             // frmNhanVien
             // 
