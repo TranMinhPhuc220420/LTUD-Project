@@ -76,7 +76,7 @@
             this.label1.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label1.Location = new System.Drawing.Point(489, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(226, 67);
+            this.label1.Size = new System.Drawing.Size(181, 54);
             this.label1.TabIndex = 2;
             this.label1.Text = "Chức vụ";
             // 
@@ -87,7 +87,7 @@
             this.txtMaCVTim.Location = new System.Drawing.Point(808, 76);
             this.txtMaCVTim.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMaCVTim.Name = "txtMaCVTim";
-            this.txtMaCVTim.Size = new System.Drawing.Size(352, 32);
+            this.txtMaCVTim.Size = new System.Drawing.Size(352, 27);
             this.txtMaCVTim.TabIndex = 8;
             this.txtMaCVTim.Text = "nhập mã chức vụ tìm...";
             this.txtMaCVTim.Click += new System.EventHandler(this.txtMaCVTim_Click);
@@ -159,7 +159,7 @@
             this.txtTenCV.Location = new System.Drawing.Point(197, 128);
             this.txtTenCV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTenCV.Name = "txtTenCV";
-            this.txtTenCV.Size = new System.Drawing.Size(443, 35);
+            this.txtTenCV.Size = new System.Drawing.Size(443, 30);
             this.txtTenCV.TabIndex = 2;
             this.txtTenCV.TextChanged += new System.EventHandler(this.txtTenCV_TextChanged);
             // 
@@ -191,7 +191,7 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.8F);
             this.label3.Location = new System.Drawing.Point(39, 132);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(158, 29);
+            this.label3.Size = new System.Drawing.Size(126, 25);
             this.label3.TabIndex = 2;
             this.label3.Text = "Tên chức vụ:";
             // 
@@ -204,7 +204,7 @@
             this.txtMaCV.Location = new System.Drawing.Point(197, 68);
             this.txtMaCV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMaCV.Name = "txtMaCV";
-            this.txtMaCV.Size = new System.Drawing.Size(443, 35);
+            this.txtMaCV.Size = new System.Drawing.Size(443, 30);
             this.txtMaCV.TabIndex = 1;
             this.txtMaCV.TextChanged += new System.EventHandler(this.txtMaCV_TextChanged);
             // 
@@ -216,18 +216,21 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.8F);
             this.label2.Location = new System.Drawing.Point(39, 70);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(157, 29);
+            this.label2.Size = new System.Drawing.Size(124, 25);
             this.label2.TabIndex = 2;
             this.label2.Text = "Mã chức vụ: ";
             // 
             // dgvChucVu
             // 
+            this.dgvChucVu.AllowUserToAddRows = false;
+            this.dgvChucVu.AllowUserToDeleteRows = false;
             this.dgvChucVu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvChucVu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvChucVu.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvChucVu.Location = new System.Drawing.Point(0, 239);
             this.dgvChucVu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvChucVu.Name = "dgvChucVu";
+            this.dgvChucVu.ReadOnly = true;
             this.dgvChucVu.RowTemplate.Height = 24;
             this.dgvChucVu.Size = new System.Drawing.Size(936, 267);
             this.dgvChucVu.TabIndex = 1;
@@ -344,9 +347,10 @@
             // 
             // frmChucVu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1188, 625);
+            this.ControlBox = false;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

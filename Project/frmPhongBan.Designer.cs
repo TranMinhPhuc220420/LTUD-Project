@@ -124,11 +124,14 @@
             // 
             // dgvPhongBan
             // 
+            this.dgvPhongBan.AllowUserToAddRows = false;
+            this.dgvPhongBan.AllowUserToDeleteRows = false;
             this.dgvPhongBan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPhongBan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPhongBan.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvPhongBan.Location = new System.Drawing.Point(0, 332);
             this.dgvPhongBan.Name = "dgvPhongBan";
+            this.dgvPhongBan.ReadOnly = true;
             this.dgvPhongBan.Size = new System.Drawing.Size(877, 190);
             this.dgvPhongBan.TabIndex = 5;
             this.dgvPhongBan.Click += new System.EventHandler(this.DgvPhongBan_Click);
